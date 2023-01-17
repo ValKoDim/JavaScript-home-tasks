@@ -46,7 +46,7 @@ class Person {
         console.log(`${this.firstName} ${this.lastName}`);
     }
 }
-// Task 4: Creating the Student class which extends Person
+// Creating the Student class which extends Person
 class Student extends Person {
     constructor(firstName, lastName, year){
         super(firstName, lastName)
@@ -72,3 +72,59 @@ console.log("Current course: " + stud1.showCourse());
 console.log(stud2.showFullName("Smith")); 
 console.log("Current course: " + stud2.showCourse());
 console.log(' ');
+
+/*Task 4: Create worker class which displays the name and salary of the 
+worker at the end find a wayt ot sort them by salary descending*/
+
+// Creating the Worker class
+class Worker {
+    constructor(fullName, dayRate, workingDays){
+        this.fullName = fullName
+        this.dayRate = dayRate
+        this.workingDays = workingDays
+    }
+    #experience = 1.2;
+
+    get showExp(){
+        return this.#experience
+    }
+    set setExp(newExp){
+        this.#experience = newExp
+    }
+
+    showSalary(){
+        console.log(`${this.fullName} salary: ${this.dayRate * this.workingDays}`);
+    }
+    showSalaryWithExperience(){
+        console.log(`${this.fullName} salary: ${(this.dayRate * this.workingDays) * this.#experience}`)
+    }}
+
+
+
+// Execution
+let worker1 = new Worker("John Johnson", 20, 23);
+console.log(worker1.fullName);                 
+worker1.showSalary();
+console.log("New experience: " + worker1.showExp);
+worker1.showSalaryWithExperience();
+worker1.setExp = 1.5;
+console.log("New experience: " + worker1.showExp);
+worker1.showSalaryWithExperience();
+
+// Creating the new workers and sorting them by salary
+
+let worker2 = new Worker("Tom Tomson", 48, 22);
+worker2.setExp = 1.5;
+
+let worker3 = new Worker("Andy Ander", 29, 23);
+worker3.setExp = 1.5;
+
+let arrWorkers= [worker1,worker2,worker3];
+
+arrWorkers.sort((a,b) => (a.dayRate * a.workingDays) * a.showExp - 
+(b.dayRate * b.workingDays) * b.showExp)
+
+console.log('Sorted salary:');
+for(let i =0;i< arrWorkers.length;i++){
+    console.log(`${arrWorkers[i].fullName}: ${(arrWorkers[i].dayRate * arrWorkers[i].workingDays) * arrWorkers[i].showExp}`)
+}
