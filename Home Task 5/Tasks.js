@@ -74,7 +74,7 @@ console.log("Current course: " + stud2.showCourse());
 console.log(' ');
 
 /*Task 4: Create worker class which displays the name and salary of the 
-worker at the end find a wayt ot sort them by salary descending*/
+worker at the end find a way to sort them by salary descending*/
 
 // Creating the Worker class
 class Worker {
@@ -128,3 +128,71 @@ console.log('Sorted salary:');
 for(let i =0;i< arrWorkers.length;i++){
     console.log(`${arrWorkers[i].fullName}: ${(arrWorkers[i].dayRate * arrWorkers[i].workingDays) * arrWorkers[i].showExp}`)
 }
+console.log(' ');
+
+//Task 5: Create a hierarchyfor geometric shapes. Calculate their are, then total are
+
+//Creating the parent class GeometricFigure
+class GeometricFigure{
+
+    getArea(){
+        return 0
+    }
+    toString(){
+        return Object.getPrototypeOf(this).constructor.name;
+    }
+}
+// Creating the child classes
+
+class Triangle extends GeometricFigure{
+    constructor(height, base){
+        super()
+        this.height = height
+        this.base = base
+    }
+
+    getArea(){
+        return (this.height * this.base) / 2
+    }
+}
+
+class Square extends GeometricFigure{
+    constructor(side){
+        super()
+        this.side = side
+    }
+
+    getArea(){
+        return this.side * this.side
+    }
+}
+
+class Circle extends GeometricFigure{
+    constructor(radius){
+        super()
+        this.radius = radius
+    }
+    getArea(){
+        return Math.PI * Math.pow(this.radius, 2);
+    }
+}
+
+// Creating the handleFigures function
+
+function handleFigures(figures){
+    let dummyObject = new GeometricFigure
+    let total = 0;
+    for(let i =0;i<figures.length;i++){
+        if(false){
+            console.log(`${figures[i].name} is not a valid geometrical shape`)
+        }else{
+            console.log(`Geometric figure: ${figures[i].toString()} - area ${figures[i].getArea()}`)
+        }
+        total += figures[i].getArea();
+    }
+    console.log(`Total: ${total}`)
+}
+
+// Execution
+const figures = [new Triangle(4, 5), new Square(7), new Circle(5)];
+handleFigures(figures);
