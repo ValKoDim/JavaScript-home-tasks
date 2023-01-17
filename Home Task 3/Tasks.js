@@ -18,11 +18,9 @@ console.log('');
 // Task 2: Use for loop to check which numbers up to 15 are odd and even
 
 for(let i = 0;i <= 15; i++){
-    if(i%2 ==0){
-        console.log(`${i} is an even number`);
-    }else{
-        console.log(`${i} is an odd number`);
-    }
+
+    console.log(`${i} is ${i % 2 ==0 ? "is an even number" : "is an odd number"} `)
+
 };
 
 console.log('');

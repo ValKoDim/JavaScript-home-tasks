@@ -22,11 +22,11 @@ calcRectangleArea('k',2);
 function calcRectangleArea(width, height){
 
     try{
-        if(typeof(width) !== 'number' || typeof(height) !== 'number' 
-    || width <= 0 || height <= 0){
-        throw new Error('Please enter only numerical values.')
-        
-    }
+
+        if(isNaN(parseFloat(width)) || isNaN(parseFloat(height)) 
+        && width <= 0 && height <= 0){
+            throw new Error('Please enter only numerical values.')
+        } 
     console.log(width * height);
     }catch(exception){
         console.log(exception.message);
