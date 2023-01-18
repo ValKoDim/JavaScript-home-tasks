@@ -179,6 +179,8 @@ class Circle extends GeometricFigure{
 
 // Creating the handleFigures function
 
+// Find a way to check parent class *
+
 function handleFigures(figures){
     let dummyObject = new GeometricFigure
     let total = 0;
